@@ -39,6 +39,14 @@ npm run list 39374682
 
 # Advanced
 
+## Check the account count
+
+_Assuming you fetched the ledger indexes used:_ you can count (`wc -l`) the output lines:
+
+```
+node accountlist.js 37374682 | wc -l
+```
+
 ## Create account list for ledger index
 
 _Assuming you fetched the ledger indexes used:_ you can cut the `accountlist` output and store the stdout:
@@ -61,7 +69,7 @@ diff -u 37374682.txt 39374682.txt | grep -E "^\+"|cut -d "+" -f 2
 
 ## Sorting on ledger index of last transaction
 
-You can use `awk` to change the order of the output, and use `sort -n` (numeric). Sample: 
+_Assuming you fetched the ledger indexes used:_ you can use `awk` to change the order of the output, and use `sort -n` (numeric). Sample: 
 
 ```
 node accountlist.js 37374682 | awk '{print $3,$2,$1}' | sort -n
