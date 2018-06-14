@@ -12,7 +12,7 @@ fs.readFile(__dirname + '/' + process.argv[2] + '_accounts.json', (err, data) =>
   }
   let accounts = JSON.parse(data)
   accounts.map(a => {
-    return a.Account
+    return a.Account + ' ' + a.PreviousTxnID + ' ' + a.PreviousTxnLgrSeq
   }).sort().forEach(a => {
     console.log(a)
   })
