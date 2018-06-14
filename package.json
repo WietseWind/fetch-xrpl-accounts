@@ -4,7 +4,8 @@
   "description": "Fetch account and account balance from the XRPL for a specific ledger index",
   "author": "Wietse Wind <mail@wietse.com>",
   "scripts": {
-    "fetch": "node accountroot.js"
+    "fetch": "node accountroot.js",
+    "list": "node accountlist.js"
   },
   "dependencies": {
     "JSONStream": "^1.3.3",

@@ -20,3 +20,19 @@ npm run fetch 39374682 wss://s2.ripple.com
 ```
 
 The default server is: **wss://s1.ripple.com**
+
+# List accounts for a ledger index
+
+You should first fetch all AccountRoot information for the specific ledger index (see "Fetch XRPL Accounts" above this section).
+
+When the ledger is fetched (and `ledgerindex_accounts.json` exists) you can list all the accounts found **sorted alphabetically**:
+
+```
+npm run list ledgerindex
+```
+
+Eg. 
+
+```
+npm run list 39374682
+```
