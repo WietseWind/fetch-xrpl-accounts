@@ -36,3 +36,11 @@ Eg.
 ```
 npm run list 39374682
 ```
+
+## Sorting on ledger index
+
+You can use `awk` to change the order of the output, and use `sort -n` (numeric). Sample: 
+
+```
+node accountlist.js 37374682 | awk '{print $3,$2,$1}' | sort -n
+```
