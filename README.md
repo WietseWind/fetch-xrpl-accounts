@@ -37,10 +37,32 @@ Eg.
 npm run list 39374682
 ```
 
+# Advanced
+
 ## Sorting on ledger index
 
 You can use `awk` to change the order of the output, and use `sort -n` (numeric). Sample: 
 
 ```
 node accountlist.js 37374682 | awk '{print $3,$2,$1}' | sort -n
+```
+
+## Create account list for ledger index
+
+_Assuming you fetched the ledger indexes used:_ you can cut the `accountlist` output and store the stdout:
+
+```
+node accountlist.js 37374682 | cut -d " " -f 1 > 37374682.txt
+```
+
+Now do this for another ledger index:
+
+```
+node accountlist.js 39374682 | cut -d " " -f 1 > 39374682.txt
+```
+
+Now use `diff` to check for the newly created accounts between the two ledgers:
+
+```
+diff -u 37374682.txt 39374682.txt | grep -E "^\+"|cut -d "+" -f 2
 ```
